@@ -1,5 +1,5 @@
 # Quantum Transformation Circuit (QTC)
-This repository implements a fully-connected QTC Quantum Transformation Circuit in the [Hybrid Quantum Capsule Network (HQCapsNet)](https://github.com/RinRoya/quantum-transformation-circuit)
+This repository implements a fully-connected QTC Quantum Transformation Circuit in the [Hybrid Quantum Capsule Network (HQCapsNet)](https://github.com/RinRoya/quantum-transformation-circuit).
 
 ---
 
@@ -78,8 +78,8 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{HQCapsNet2026,
-  title   = {Hybrid Quantum Capsule Networks with Parameterized Quantum Circuits},
-  author  = {Your Name},
+  title   = {Hybrid Quantum Capsule Network: Quantum Transformation Circuit as Vote Transformation in Image Classification},
+  author  = {Wijaya, Ridho Nur Rohman and Setiyono, Budi and Sulistyaningrum, Dwi Ratna},
   journal = {IEEE Transactions on Quantum Engineering},
   year    = {2026},
   note    = {Under review}
