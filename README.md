@@ -42,7 +42,7 @@ Noise is applied directly on measurement probabilities as an efficient approxima
 
 Input example: MNIST (28×28×1)
 
-```
+```Python
 x = self.convolutional_layer(x) # (None, 20, 20, 256)
 x = self.primary_capsule_layer(x) # (None, 6, 6, 256)
 u = tf.reshape(x, (x.shape[0], -1, self.dim)) # (None, 576, 16)
@@ -58,7 +58,7 @@ Dynamic routing procedure follows...
 
 ### Fully-connected QTC (Quantum Version)
 
-```
+```Python
 self.QC_pqc = QuantumClass(n_qubits_pqc, n_pqc_layer, pqc_layer, q_embedding, imprimitive)
 self.PQC_Layer = QuantumLayer(self.QC_pqc.qnode_pqc, self.QC_pqc.params_shape, num_class, depolarizing_prop, readout_prob)
 
