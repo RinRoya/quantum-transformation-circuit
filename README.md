@@ -15,11 +15,24 @@ This setup supports GPU acceleration for classical components and statevector si
 
 ## 🚀 Model Overview
 
-HQCapsNet consists of:
+### HQCapsNet consists of:
 - Convolutional feature extractor
 - Primary Capsule Layer
 - Quantum Transformation Capsule (QTC) layer
 - Dynamic routing mechanism
+
+### The QTC layer is implemented using:
+- Amplitude / Angle / IQP embeddings
+- Variational quantum ansatz (Basic / Strongly Entangling / Simplified Two-Design)
+- Measurement via computational basis probabilities
+
+### Noise Model (Optional)
+
+A simplified NISQ-inspired noise model is included:
+- Terminal depolarizing noise
+- Symmetric readout error
+
+Noise is applied directly on measurement probabilities as an efficient approximation of quantum hardware imperfections without requiring density-matrix simulation. If full density-matrix simulation with additional quantum channels is required, the implementation should use PennyLane `default.mixed`. However, such simulations significantly increase computational cost and memory usage. Therefore, the current implementation uses analytical probability-level noise injection for efficiency, and avoids enabling `tf.config.run_functions_eagerly(True)` or full mixed-state execution due to severe performance overhead.
 
 ---
 
@@ -56,25 +69,6 @@ u_hat = self.PQC_Layer(u) # (None, 576, 2, 8)
 u_hat = tf.cast(u_hat, dtype=tf.float32)
 ```
 Dynamic routing procedure follows...
-
----
-
-## ⚛️ Quantum Layer (QTC)
-
-The QTC layer is implemented using:
-- Amplitude / Angle / IQP embeddings
-- Variational quantum ansatz (Basic / Strongly Entangling / Simplified Two-Design)
-- Measurement via computational basis probabilities
-
----
-
-## 📊 Noise Model (Optional)
-
-A simplified NISQ-inspired noise model is included:
-- Terminal depolarizing noise
-- Symmetric readout error
-
-Noise is applied directly on measurement probabilities as an efficient approximation of quantum hardware imperfections without requiring density-matrix simulation. If full density-matrix simulation with additional quantum channels is required, the implementation should use PennyLane `default.mixed`. However, such simulations significantly increase computational cost and memory usage. Therefore, the current implementation uses analytical probability-level noise injection for efficiency, and avoids enabling `tf.config.run_functions_eagerly(True)` or full mixed-state execution due to severe performance overhead.
 
 ---
 
