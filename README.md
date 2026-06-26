@@ -1,5 +1,5 @@
 # Quantum Transformation Circuit (QTC)
-This repository implements a fully-connected QTC Quantum Transformation Circuit in the [Hybrid Quantum Capsule Network (HQCapsNet)](https://github.com/RinRoya/quantum-transformation-circuit).
+This repository implements the integration of a fully-connected Quantum Transformation Circuit into the Capsule Network pipeline, following the work on the  [Hybrid Quantum Capsule Network (HQCapsNet)](https://github.com/RinRoya/quantum-transformation-circuit).
 
 ---
 
@@ -38,7 +38,7 @@ Noise is applied directly on measurement probabilities as an efficient approxima
 
 ## 🔧 Usage
 
-### Classical Capsule Network Flow
+### Classical Capsule Network Flow (Classical Version)
 
 Input example: MNIST (28×28×1)
 
@@ -71,6 +71,10 @@ u_hat = tf.cast(u_hat, dtype=tf.float32)
 Dynamic routing procedure follows...
 
 ---
+
+### HQCapsNet model implementation
+
+A simple implementation of the HQCapsNet model is available in `main.ipynb`
 
 ## 📚 Citation
 
