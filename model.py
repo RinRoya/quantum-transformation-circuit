@@ -42,7 +42,7 @@ class HybridQuantumCapsuleNetwork(tf.keras.Model):
 
         self.n_qubits_pqc = n_qubits_pqc
         self.q_embedding = q_embedding
-        self.QC_pqc = QuantumClass(self.n_qubits_pqc, n_pqc_layer, pqc_layer, q_embedding, imprimitive)
+        self.QTC_pqc = QuantumClass(self.n_qubits_pqc, n_pqc_layer, pqc_layer, q_embedding, imprimitive)
           
         num_caps_vec = np.floor((img_shape[-3]-self.conv_kernel_size[0])/self.conv_strides[0] + 1) # convolutional layer output
         num_caps_vec = np.floor((num_caps_vec-self.primary_capsule_kernel_size[0])/self.primary_capsule_strides[0] + 1) # primary capsule layer output
@@ -62,7 +62,7 @@ class HybridQuantumCapsuleNetwork(tf.keras.Model):
             self.model_layers.append(self.primary_capsule)
                 
             if self.hybrid:
-                self.PQC_Layer = QuantumLayer(self.QC_pqc.qnode_pqc, self.QC_pqc.params_shape, self.num_digitcaps, noise_prop, readout_prob, name='PQC')
+                self.PQC_Layer = QuantumLayer(self.QTC_pqc.qnode_pqc, self.QTC_pqc.params_shape, self.num_digitcaps, noise_prop, readout_prob, name='PQC')
                 self.caps_dim = 2**self.n_qubits_pqc
                 if not self.q_embedding=="amplitude":
                     self.caps_dim = self.n_qubits_pqc
