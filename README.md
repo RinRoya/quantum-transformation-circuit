@@ -86,7 +86,7 @@ If you use this code in your research, please cite:
   author  = {Wijaya, Ridho Nur Rohman and Setiyono, Budi and Sulistyaningrum, Dwi Ratna},
   journal = {IEEE Transactions on Quantum Engineering},
   year    = {2026},
-  note    = {Under review}
+  note    = {Accepted}
 }
 ```
 
